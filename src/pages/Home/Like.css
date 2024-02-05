@@ -1,0 +1,14 @@
+.like {
+  border: 1px solid black;
+  border-radius: 100%;
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.like.active {
+  background-color: rgb(228, 166, 155);
+  align-items: center;
+  
+}
