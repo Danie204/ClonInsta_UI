@@ -1,19 +1,19 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { useLang } from '../IntlContext';
-import UserInfo from './UserInfo';
-import './Header.css';
-import { listPosts } from '../../hooks/api'
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import { useLang } from "../IntlContext";
+import UserInfo from "./UserInfo";
+import "./Header.css";
+import { listPosts } from "../../hooks/api";
 
 const Header = () => {
   const [lang, setLang] = useLang();
-  const [theme, setTheme] = useState('light'); // Estado para el tema
-  const [searchTerm, setSearchTerm] = useState('');
+  const [theme, setTheme] = useState("light");
+  const [searchTerm, setSearchTerm] = useState("");
   const [searchResult, setSearchResult] = useState([]);
 
   // Función para cambiar el tema
   const toggleTheme = () => {
-    setTheme(theme === 'light' ? 'dark' : 'light');
+    setTheme(theme === "light" ? "dark" : "light");
   };
 
   // Función para manejar cambios en el campo de búsqueda
@@ -27,12 +27,12 @@ const Header = () => {
       const posts = await listPosts(searchTerm); // Llama a la función listPosts con el término de búsqueda
       setSearchResult(posts);
     } catch (error) {
-      console.error('Error al buscar publicaciones:', error);
+      console.error("Error al buscar publicaciones:", error);
     }
   };
 
   return (
-    <header className={theme === 'light' ? 'light-theme' : 'dark-theme'}>
+    <header className={theme === "light" ? "light-theme" : "dark-theme"}>
       <nav>
         <Link to="/">
           <button>
@@ -69,10 +69,8 @@ const Header = () => {
 
       <button onClick={handleSearch}>Buscar</button>
 
-      
-
       <button onClick={toggleTheme}>
-        {theme === 'light' ? 'Cambiar a tema oscuro' : 'Cambiar a tema claro'}
+        {theme === "light" ? "Cambiar a tema oscuro" : "Cambiar a tema claro"}
       </button>
 
       <UserInfo />

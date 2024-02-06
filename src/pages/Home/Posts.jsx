@@ -29,7 +29,7 @@ const Posts = ({ data }) => {
         <span className="date"><FormattedDate value={data.createdAt} month="long" day="numeric" /></span>
       </div>
     </Link>
-    <Like/> 
+    <Like postId={data.id}/> 
     </>
   );
 }

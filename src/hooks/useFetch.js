@@ -14,7 +14,7 @@ export const useFetchPosts = () => {
     const headers = {
       'Content-Type': 'application/json'
     }
-    if (user?.token) headers.Authorization = `${user}`
+    if (user) headers.Authorization = `${user}`
     const res = await fetch(url, {
       method: 'POST',
       headers,
