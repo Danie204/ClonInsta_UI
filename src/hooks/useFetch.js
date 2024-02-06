@@ -27,4 +27,3 @@ export const useFetchPosts = () => {
 
 export default useFetch
 
-
