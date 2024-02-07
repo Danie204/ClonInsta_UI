@@ -25,7 +25,8 @@ const Home = () => {
           Nuevo Post
         </Link>
       )}
-      {posts && posts.data.photos.map((e) => <Posts key={e.id} data={e} />)}
+      {posts && posts.data.photos.map((e) => 
+      <Posts key={e.id} data={e} />)}
     </div>
   );
 };
