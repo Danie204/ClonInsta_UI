@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Avatar from './Avatar'
 
 const Profile = () => {
   const [showPosts, setShowPosts] = useState(false);
@@ -34,6 +35,7 @@ const Profile = () => {
       )}
     </div>
   );
-};
+ }; 
+<Avatar /> 
 
 export default Profile;
