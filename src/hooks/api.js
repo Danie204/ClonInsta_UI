@@ -3,6 +3,7 @@ import { useFetch, useFetchPosts } from '/src/hooks/useFetch.js';
 const apiHost = 'http://localhost:3000';
 
 export const usePosts = () => useFetch(apiHost + '/posts/');
+export const usePostsById = (userId) => useFetch(apiHost + `/posts?user=${userId}`);
 
 export const useMyInfo = () => useFetch(apiHost + '/users');
 

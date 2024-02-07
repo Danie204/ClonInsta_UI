@@ -2,7 +2,7 @@ import { FormattedDate } from "react-intl";
 import { Link, useNavigate } from "react-router-dom";
 import "./Posts.css";
 import Like from "./Like";
-import DeletePost from "../Posts/DeletePost";
+import DeletePost from "../Post/DeletePost";
 
 const Posts = ({ data }) => {
   const style = {};
@@ -28,7 +28,7 @@ const Posts = ({ data }) => {
 
   return (
     <>
-      <Link className="Posts" style={style} to={`/posts/${data.id}/${slug}`}>
+      <Link className="Posts" style={style} to={`/post/${data.id}/${slug}`}>
         <h3>{data.description}</h3>
         <div
           className="Posts"
