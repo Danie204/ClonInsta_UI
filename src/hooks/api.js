@@ -11,6 +11,7 @@ export const useUserActions = () => {
     return {
         login: (email, password) => fetchPosts(apiHost + '/users/login', { email, password }),
         createPosts: (description, photo) => fetchPosts(apiHost + '/posts', { description, photo }),
+        deletePost: (postId) => fetchPosts(apiHost + `/posts/${postId}`, null, 'DELETE'),
         like: async (postId) => fetchPosts(apiHost + `/posts/${postId}/like`, { postId }),
     };
 };
