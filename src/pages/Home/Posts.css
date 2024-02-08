@@ -1,16 +1,16 @@
 #home .Posts {
   display: inline-block;
   border-radius: 8px;
-  width: 768px;
-  height: 768px;
-  background-color: #333;
+  width: 550px;
+  height: 750px;
+  background-color: #ffffff;
   background-position: center;
   background-size: cover;
   margin: 0 auto 30px;
   position: relative;
   text-align: center;
   overflow: hidden;
-  box-shadow: rgba(0, 0, 0, 0.4) 5px 5px 15px;
+  box-shadow: rgba(245, 241, 241, 0.4) 5px 5px 15px;
   box-sizing: border-box;
 
   flex-direction: column;

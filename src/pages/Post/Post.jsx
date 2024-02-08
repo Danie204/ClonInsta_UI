@@ -16,14 +16,14 @@ const Post = () => {
     <div id="post">
       <header style={style}>
         <Link to="/">⬅</Link>
-        <h2>{post.data.post.description}</h2>
+        <h2>{posts.data.posts.description}</h2>
       </header>
       <div className="metadata">
-        <span className="author">Por {post.data.post.username}</span>
+        <span className="author">Por {post.data.posts.username}</span>
         {' - '}
-        <span className="description">En {post.data.post.description}</span>
+        <span className="description">En {post.data.posts.description}</span>
         {' - '}
-        <span className="date"><FormattedDate value={post.data.post.createdAt} month="long" day="numeric" /></span>
+        <span className="date"><FormattedDate value={post.data.posts.createdAt} month="long" day="numeric" /></span>
         {' - '}
       </div>
       <main>

@@ -30,7 +30,7 @@ const Profile = () => {
         </div>
       </div>
     </div>
-    <div>
+    <div>Las fotos en grilla
     {posts && posts.data.photos.map((e) => 
       <img src={`http://localhost:3000/${e.imagenURL}`} key={e.id}/>)}
     </div>
