@@ -1,15 +1,16 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
 import { useLang } from '../IntlContext';
-import UserInfo from './UserInfo';
+import UserInfo from '../../Components/Header/UserInfo';
 import './Header.css';
 import { listPosts } from '../../hooks/api';
+import { useUser } from '../../UserContext'; 
 
-const Header = () => {
+const Header = ({setFiltros}) => {
   const [lang, setLang] = useLang();
-  const [theme, setTheme] = useState('light'); // Estado para el tema
+  const [theme, setTheme] = useState('light'); 
   const [searchTerm, setSearchTerm] = useState('');
   const [searchResult, setSearchResult] = useState([]);
+  const [user] = useUser(); // Utiliza useUser en su lugar
 
   // Función para cambiar el tema
   const toggleTheme = () => {
@@ -23,24 +24,17 @@ const Header = () => {
 
   // Función para manejar la búsqueda y la navegación a la página de resultados
   const handleSearch = async () => {
-    try {
-      const posts = await listPosts(searchTerm); // Llama a la función listPosts con el término de búsqueda
-      setSearchResult(posts);
-      // Después de obtener los resultados, navegar a la página de resultados
-    } catch (error) {
-      console.error('Error al buscar publicaciones:', error);
-    }
+    setFiltros(searchTerm)
+    setSearchTerm("")
   };
 
   return (
     <header className={theme === 'light' ? 'light-theme' : 'dark-theme'}>
       <nav>
-        <Link to="/">
-          <button>
-            <span>Instragram</span>
-          </button>
-        </Link>
-        <Link to="/posts">Publicar</Link>
+        <button onClick={() => handleNavigation('/')}>
+          <span>Instragram</span>
+        </button>
+        <button onClick={() => handleNavigation('/posts')}>Publicar</button>
       </nav>
 
       <span>
@@ -57,16 +51,7 @@ const Header = () => {
         onChange={handleSearchChange}
       />
 
-      {/* Usamos el componente Link para envolver el botón de búsqueda */}
-      <Link
-        to={{
-          pathname: '/search-results',
-          search: `?query=${searchTerm}`,
-          state: { results: searchResult }
-        }}
-      >
-        <button onClick={handleSearch}>Buscar</button>
-      </Link>
+      <button onClick={handleSearch}>Buscar</button>
 
       <button onClick={toggleTheme}>
         {theme === 'light' ? 'Cambiar a tema oscuro' : 'Cambiar a tema claro'}
