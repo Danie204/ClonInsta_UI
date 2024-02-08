@@ -4,7 +4,7 @@ import { useUser } from "../../UserContext"
 import addImage from '/add-image.png'
 import { FormattedMessage } from "react-intl"
 import DeletePost from './DeletePost'
-import '../Posts/CreatePost.css'
+import './CreatePost.css'
 
 const CreatePost = () => {
   const [description, setDescription] = useState('')

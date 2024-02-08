@@ -30,7 +30,12 @@ const Like = ({ postId, initialLiked, likes }) => {
   );
 };
 
-/*  return (
+
+export default Like;
+
+
+/* sin ningún CSS
+ return (
     <button class="Btn">
       <div>
         <span
@@ -44,4 +49,3 @@ const Like = ({ postId, initialLiked, likes }) => {
   );
 };
 */
-export default Like;

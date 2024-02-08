@@ -1,52 +1,41 @@
-import { useState } from 'react';
-import Avatar from './Avatar';
-//import axios from 'axios'; // Importa axios para realizar solicitudes HTTP
+import { useMyInfo } from "../../../hooks/api";
+import { usePostsById} from "../../../hooks/api";
 
 const Profile = () => {
-  const [showPosts, setShowPosts] = useState(false);
-  const [userPosts, setUserPosts] = useState([]);
-
-  // Función para obtener las publicaciones del usuario desde el servidor
-  const fetchUserPosts = async () => {
-    try {
-      // Realiza una solicitud GET al servidor para obtener las publicaciones del usuario
-      const response = await axios.get(`http://localhost:3000/posts/${userId}`); // Reemplaza userId con el ID del usuario actual
-
-      // Actualiza el estado userPosts con las publicaciones obtenidas
-      setUserPosts(response.data);
-      setShowPosts(true);
-    } catch (error) {
-      console.error('Error al obtener las publicaciones del usuario:', error);
-    }
-  };
-
-  const handleChangeAvatar = () => {
-    // Lógica para cambiar el avatar del usuario
-    // Esto podría incluir una redirección a la página de cambio de avatar
-    // o la apertura de un modal, etc.
-    // Por ahora, simplemente se imprime un mensaje en la consola.
-    console.log("Cambiar avatar del usuario");
-  };
+  const info = useMyInfo();
+  const posts = usePostsById(info.data.user.id);
 
   return (
+    <>
     <div>
-      <h1>Perfil de Usuario</h1>
-      <button onClick={fetchUserPosts}>Ver Publicaciones</button>
-      <button onClick={handleChangeAvatar}>Cambiar Avatar</button>
-      <Avatar />
-      {showPosts && (
-        <div>
-          <h2>Publicaciones del Usuario</h2>
-          {userPosts.map(post => (
-            <div key={post.id}>
-              <h3>{post.title}</h3>
-              <p>{post.content}</p>
-            </div>
-          ))}
+      <div>
+      <h1>{info.data.user.username}</h1>
+      </div>
+      <div>
+         <div>
+          <span>50</span>
+          <span>Publicaciones</span>
         </div>
-      )}
+        <div>
+          <span>492</span>
+          <span>Seguidores</span>
+        </div> 
+        <div>
+          <span>950</span>
+          <span>Seguidos</span>
+        </div>
+        <div>
+          <span>50</span>
+          <span>Publicaciones</span>
+        </div>
+      </div>
     </div>
-  );
-};
+    <div>Las fotos en grilla
+    {posts && posts.data.photos.map((e) => 
+      <img src={`http://localhost:3000/${e.imagenURL}`} key={e.id}/>)}
+    </div>
+</>
+  )
+}
 
-export default Profile;
+export default Profile
