@@ -19,4 +19,4 @@ export const MyIntlProvider = ({ children }) => {
   )
 }
 
-export const useLang = () => useContext(IntlContext)
+export const useLang = () => useContext(IntlContext);

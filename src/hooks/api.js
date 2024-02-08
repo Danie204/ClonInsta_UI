@@ -3,9 +3,8 @@ import { useFetch, useFetchPosts } from '/src/hooks/useFetch.js';
 const apiHost = 'http://localhost:3000';
 
 export const usePosts = () => useFetch(apiHost + '/posts/');
-export const usePostsById = (userId) => useFetch(apiHost + `/posts?user=${userId}`);
-
 export const useMyInfo = () => useFetch(apiHost + '/users');
+export const usePostsById = (userId) => useFetch(apiHost + `/posts?user=${userId}`);
 
 export const useUserActions = () => {
     const fetchPosts = useFetchPosts();
@@ -15,4 +14,13 @@ export const useUserActions = () => {
         deletePost: (postId) => fetchPosts(apiHost + `/posts/${postId}`, null, 'DELETE'),
         like: async (postId) => fetchPosts(apiHost + `/posts/${postId}/like`, { postId }),
     };
+};
+
+export const listPosts = async (searchTerm) => {
+    const url = `http://localhost:3000/posts${searchTerm ? `?search=${searchTerm}` : ''}`;
+    const response = await fetch(url);
+    if (!response.ok) {
+        throw new Error(`Error al buscar publicaciones: ${response.statusText}`);
+    }
+    return await response.json();
 };

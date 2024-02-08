@@ -2,7 +2,7 @@ import { FormattedDate } from "react-intl";
 import { Link, useNavigate } from "react-router-dom";
 import "./Posts.css";
 import Like from "./Like";
-import DeletePost from "../Posts/DeletePost";
+import DeletePost from "../Post/DeletePost";
 
 const Posts = ({ data }) => {
   const style = {};

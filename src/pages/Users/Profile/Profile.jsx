@@ -1,5 +1,5 @@
 import { useMyInfo } from "../../../hooks/api";
-import { usePostsById} from "../../../hooks/api";
+import { usePostsById } from "../../../hooks/api";
 
 const Profile = () => {
   const info = useMyInfo();
@@ -38,4 +38,4 @@ const Profile = () => {
   )
 }
 
-export default Profile
+export default Profile;
