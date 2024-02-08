@@ -8,13 +8,9 @@ const Posts = ({ data }) => {
   const style = {};
   const slug = data.description.toLowerCase().replaceAll(" ", "-");
   const navigate = useNavigate();
-
-  // aquí calculamos la diferencia de fechas chicos del posts
   const createdAt = new Date(data.createdAt);
   const currentDate = new Date();
   const differenceInHours = Math.round((currentDate - createdAt) / 3600000);
-
-  // aquí se  determina si han pasado 24hrs nos lo muestra en días
   const isMoreThanOneDay = differenceInHours >= 24;
 
   let timeAgoText = "";
@@ -49,12 +45,13 @@ const Posts = ({ data }) => {
               {data.username}
             </button>
           </span>
-          {" - "}
+          {"  "}
           <span className="date">
             <FormattedDate value={data.createdAt} month="long" day="numeric" />
           </span>
-          {" - "}
-          <span className="time-ago"> Hace {timeAgoText}</span>
+          {"  "}
+          <span className="timeAgo"> Hace {timeAgoText}</span>
+          {"  "}
         </div>
       </Link>
       <Like postId={data.id} likes={data.likes} />

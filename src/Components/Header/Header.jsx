@@ -4,32 +4,27 @@ import { useLang } from '../IntlContext';
 import UserInfo from './UserInfo';
 import './Header.css';
 import { listPosts } from '../../hooks/api';
+import { useUser } from '../../UserContext';
 
-const Header = () => {
+
+const Header = ({ setFiltros }) => {
   const [lang, setLang] = useLang();
-  const [theme, setTheme] = useState('light'); // Estado para el tema
+  const [theme, setTheme] = useState('light'); 
   const [searchTerm, setSearchTerm] = useState('');
   const [searchResult, setSearchResult] = useState([]);
+  const [user] = useUser();
 
-  // Función para cambiar el tema
   const toggleTheme = () => {
     setTheme(theme === 'light' ? 'dark' : 'light');
   };
 
-  // Función para manejar cambios en el campo de búsqueda
   const handleSearchChange = (e) => {
     setSearchTerm(e.target.value);
   };
 
-  // Función para manejar la búsqueda y la navegación a la página de resultados
   const handleSearch = async () => {
-    try {
-      const posts = await listPosts(searchTerm); // Llama a la función listPosts con el término de búsqueda
-      setSearchResult(posts);
-      // Después de obtener los resultados, navegar a la página de resultados
-    } catch (error) {
-      console.error('Error al buscar publicaciones:', error);
-    }
+    setFiltros(searchTerm)
+    setSearchTerm("")
   };
 
   return (
@@ -57,16 +52,8 @@ const Header = () => {
         onChange={handleSearchChange}
       />
 
-      {/* Usamos el componente Link para envolver el botón de búsqueda */}
-      <Link
-        to={{
-          pathname: '/search-results',
-          search: `?query=${searchTerm}`,
-          state: { results: searchResult }
-        }}
-      >
-        <button onClick={handleSearch}>Buscar</button>
-      </Link>
+      <button onClick={handleSearch}>Buscar</button>
+  
 
       <button onClick={toggleTheme}>
         {theme === 'light' ? 'Cambiar a tema oscuro' : 'Cambiar a tema claro'}

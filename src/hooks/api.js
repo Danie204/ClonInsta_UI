@@ -16,6 +16,7 @@ export const useUserActions = () => {
     };
 };
 
+export const useSearch = () => useFetch(apiHost + `/posts?search=${description}`);
 export const listPosts = async (searchTerm) => {
     const url = `http://localhost:3000/posts${searchTerm ? `?search=${searchTerm}` : ''}`;
     const response = await fetch(url);
