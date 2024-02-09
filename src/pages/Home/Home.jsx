@@ -1,22 +1,28 @@
 import { Link } from "react-router-dom";
 import { useTheme } from "../../ThemeContext";
-import { usePosts } from "../../hooks/api";
+import { listPosts, usePosts } from "../../hooks/api";
 import { useUser } from "../../UserContext";
 import { FormattedMessage } from "react-intl";
 import Posts from "./Posts";
 import "./Home.css";
+import { useEffect, useState } from "react";
 
-const Home = () => {
-  const posts = usePosts();
+const Home = ({filtros}) => {
+  const [posts, setPosts] = useState([])
+
+  //const posts = usePosts();
   const [user] = useUser();
   const [theme] = useTheme();
 
-  <p>
-    <FormattedMessage
-      id="home.theme"
-      values={{ theme: <FormattedMessage id={`themes.${theme}`} /> }}
-    />
-  </p>;
+  useEffect( ()=>{
+    const getListPost = async () =>{
+      const respAPI = await listPosts(filtros)
+      setPosts(respAPI.data.photos)
+    }
+    getListPost()
+  }, [filtros])
+
+
   return (
     <div id="home">
       <h2>Entradas Recientes </h2>
@@ -25,8 +31,7 @@ const Home = () => {
           Nuevo Post
         </Link>
       )}
-      {posts && posts.data.photos.map((e) => 
-      <Posts key={e.id} data={e} />)}
+      {posts && posts.map((e) => <Posts key={e.id} data={e} />)}
     </div>
   );
 };

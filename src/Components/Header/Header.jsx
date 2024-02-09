@@ -1,15 +1,14 @@
-import React, { useState } from "react";
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useLang } from "../IntlContext";
-import UserInfo from "../../Components/Header/UserInfo";
-import "./Header.css";
-import { listPosts } from "../../hooks/api";
-import { useUser } from "../../UserContext";
+import { useLang } from '../IntlContext';
+import UserInfo from './UserInfo';
+import './Header.css';
+import { listPosts } from '../../hooks/api';
 
-const Header = ({ setFiltros }) => {
+const Header = () => {
   const [lang, setLang] = useLang();
-  const [theme, setTheme] = useState("light");
-  const [searchTerm, setSearchTerm] = useState("");
+  const [theme, setTheme] = useState('light'); // Estado para el tema
+  const [searchTerm, setSearchTerm] = useState('');
   const [searchResult, setSearchResult] = useState([]);
   const [user] = useUser(); // Utiliza useUser en su lugar
 
@@ -25,13 +24,18 @@ const Header = ({ setFiltros }) => {
 
   // Función para manejar la búsqueda y la navegación a la página de resultados
   const handleSearch = async () => {
-    setFiltros(searchTerm);
-    setSearchTerm("");
+    try {
+      const posts = await listPosts(searchTerm); // Llama a la función listPosts con el término de búsqueda
+      setSearchResult(posts);
+      // Después de obtener los resultados, navegar a la página de resultados
+    } catch (error) {
+      console.error('Error al buscar publicaciones:', error);
+    }
   };
 
   return (
-    <header className={theme === "light" ? "light-theme" : "dark-theme"}>
-         <nav>
+    <header className={theme === 'light' ? 'light-theme' : 'dark-theme'}>
+      <nav>
         <Link to="/">
           <button>
             <span>Instragram</span>
