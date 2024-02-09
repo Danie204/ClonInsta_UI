@@ -1,5 +1,6 @@
 import { FormattedDate } from "react-intl";
 import { usePostsById } from "../../hooks/api";
+import { useNavigate } from "react-router-dom";
 import "./Post.css";
 import Like from "../Home/Like";
 
@@ -7,6 +8,7 @@ const Post = () => {
   const postId = window.location.pathname.split("/")[2];
   const result = usePostsById(postId);
   const data = result.data.post;
+  const navigate = useNavigate();
 
   return (
     <>
