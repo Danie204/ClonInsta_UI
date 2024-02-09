@@ -5,9 +5,9 @@
     display: none;
   }
   .posts img {
-    border: 1px solid #333;
     width: 96px;
     height: 96px;
     object-fit: cover;
+    padding: 1px 1px 1px;
   }
   

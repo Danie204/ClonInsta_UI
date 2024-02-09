@@ -9,8 +9,6 @@ import { useEffect, useState } from "react";
 
 const Home = ({filtros}) => {
   const [posts, setPosts] = useState([])
-
-  //const posts = usePosts();
   const [user] = useUser();
   const [theme] = useTheme();
 
@@ -31,7 +29,8 @@ const Home = ({filtros}) => {
           Nuevo Post
         </Link>
       )}
-      {posts && posts.map((e) => <Posts key={e.id} data={e} />)}
+      {posts && posts.map((e) => 
+      <Posts key={e.id} data={e} />)}
     </div>
   );
 };

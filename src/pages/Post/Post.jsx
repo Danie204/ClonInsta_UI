@@ -1,36 +1,42 @@
-import { FormattedDate } from "react-intl"
-import { Link, useParams } from "react-router-dom"
-import { usePosts } from "../../hooks/api"
-import './Post.css'
+import { usePostsById } from "../../hooks/api"; 
+import Posts from '../Home/Posts'
 
-const Post = () => {
-  const { id } = useParams()
-  const Posts = usePosts(id)
-  const style = {}
-  console.log('posts::', Posts)
-  if (post.data.posts.photos[0]) 
-  style.backgroundImage = 
- `url("http://localhost:3000/posts/${post.data.photos[0].name}")`
-
+const Post = ({ user }) => { 
+  const { data } = usePostsById(user.id); 
+  
   return (
     <div id="post">
-      <header style={style}>
-        <Link to="/">⬅</Link>
-        <h2>{Posts.data.posts.description}</h2>
-      </header>
+      <h3>Hola Mundo</h3> 
+      <Posts /> 
+    </div>
+  );
+};
+
+export default Post;
+
+
+
+/*import { FormattedDate } from "react-intl";
+import { usePostsById } from "../../hooks/api"; 
+import './Post.css';
+
+const Post = ({ postId }) => { 
+  const post = usePostsById(postId); 
+  
+  return (
+    <div id="post">
+        <h3>{post.data.description}</h3> 
       <div className="metadata">
-        <span className="author">Por {Posts.data.post.username}</span>
-        {' - '}
-        <span className="description">{Posts.data.post.description}</span>
-        {' - '}
-        <span className="date"><FormattedDate value={Posts.data.post.createdAt} month="long" day="numeric" /></span>
-        {' - '}
+        <span className="author">Por {post.data.username}</span> 
+        <span className="date">
+          <FormattedDate value={post.data.createdAt} month="long" day="numeric" /> 
+        </span>
       </div>
       <main>
-        {posts.data.posts.description}
+        {post.data.content} 
       </main>
     </div>
-  )
-}
+  );
+};
 
-export default Post
+export default Post; */

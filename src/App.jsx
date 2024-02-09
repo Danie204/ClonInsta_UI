@@ -1,4 +1,4 @@
-import { Suspense } from 'react'
+import { Suspense, useState } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import Header from './Components/Header/Header'
 import Home from './pages/Home/Home'
@@ -14,18 +14,20 @@ import './App.css'
 import EditAvatar from './pages/Users/Profile/EditAvatar'
 
 function App() {
+  const [filtros, setFiltros] = useState("")
+  
   console.log('API URL:', import.meta.env.VITE_API_URL)
   return (
-    <body>
+    
       
     <div>
     <Header username={import.meta.env.VITE_USERNAME} role={import.meta.env.VITE_ROLE} />
     <>
-    <Header />
-      <ErrorBoundary key={location.key} fallback={<GenericError />}>
+    <Header setFiltros={setFiltros} />
+    <ErrorBoundary key={location.key} fallback={<GenericError />}>
         <Suspense fallback={<Loading />}>
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Home filtros={filtros}/>} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/posts" element={<CreatePost />} />
@@ -37,7 +39,8 @@ function App() {
       </ErrorBoundary>
     </>
     </div>
-  );
+    
+  )
 }
 
-export default App;
+export default App   

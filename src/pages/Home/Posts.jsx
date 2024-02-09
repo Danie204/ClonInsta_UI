@@ -24,7 +24,7 @@ const Posts = ({ data }) => {
 
   return (
     <>
-      <Link className="Posts" style={style} to={`/posts/${data.id}/${slug}`}>
+      <Link className="Posts" style={style} to={`/posts`}>
         <h3>{data.description}</h3>
         <div
           className="Posts"
@@ -45,13 +45,12 @@ const Posts = ({ data }) => {
               {data.username}
             </button>
           </span>
-          {"  "}
+          {" - "}
           <span className="date">
             <FormattedDate value={data.createdAt} month="long" day="numeric" />
           </span>
-          {"  "}
-          <span className="timeAgo"> Hace {timeAgoText}</span>
           {" - "}
+          <span className="time-ago"> Hace {timeAgoText}</span>
         </div>
       </Link>
       <Like postId={data.id} likes={data.likes} />

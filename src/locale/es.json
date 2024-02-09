@@ -1,4 +1,7 @@
 {
-  "home.theme": "El tema actual es {theme}",
-  "home.welcome": "Bienvenido a Insta"
+  "es-ES": {
+    "Publicar": "Publicar",
+    "home.theme": "El tema actual es {theme}",
+    "home.welcome": "Bienvenido a Insta"
+  }
 }
