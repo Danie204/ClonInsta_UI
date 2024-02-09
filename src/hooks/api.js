@@ -4,7 +4,8 @@ const apiHost = 'http://localhost:3000';
 
 export const usePosts = () => useFetch(apiHost + '/posts/');
 export const useMyInfo = () => useFetch(apiHost + '/users');
-export const usePostsById = (postId) => useFetch(apiHost + `/posts/detail/${postId}`);
+export const usePostsById = (userId) => useFetch(apiHost + `/posts?user=${userId}`);
+//export const usePostsById = (postId) => useFetch(apiHost + `/posts/detail/${postId}`);
 
 export const useUserActions = () => {
     const fetchPosts = useFetchPosts();

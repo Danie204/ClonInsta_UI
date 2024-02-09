@@ -19,7 +19,9 @@ const Posts = ({ data }) => {
     const differenceInDays = Math.floor(differenceInHours / 24);
     timeAgoText = `${differenceInDays} día${differenceInDays === 1 ? "" : "s"}`;
   } else {
-    timeAgoText = `${differenceInHours} hora${differenceInHours === 1 ? "" : "s"}`;
+    timeAgoText = `${differenceInHours} hora${
+      differenceInHours === 1 ? "" : "s"
+    }`;
   }
 
   return (

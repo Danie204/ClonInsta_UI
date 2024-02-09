@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { useMyInfo, usePostsById } from "../../../hooks/api";
+import "./Profile.css"
+
 
 const Profile = () => {
   const info = useMyInfo();

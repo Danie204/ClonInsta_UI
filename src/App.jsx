@@ -11,7 +11,7 @@ import Loading from './Components/Loading/Loading'
 import Register from './pages/Register/Register'
 import Profile from './pages/Users/Profile/Profile'
 import './App.css'
-import EditAvatar from './pages/Users/Profile/EditAvatar'
+//import EditAvatar from './pages/Users/Profile/EditAvatar'
 
 function App() {
   const [filtros, setFiltros] = useState("")
@@ -33,7 +33,6 @@ function App() {
             <Route path="/posts" element={<CreatePost />} />
             <Route path="/posts/:id" element={<Post />} />
             <Route path="/profile/:id" element={<Profile />} />
-            <Route path="/profile/:id" element={<EditAvatar />} />
           </Routes>
         </Suspense>
       </ErrorBoundary>
