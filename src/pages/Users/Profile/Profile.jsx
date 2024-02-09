@@ -1,12 +1,16 @@
 import { useState } from 'react';
-import { useMyInfo, usePostsById } from "../../../hooks/api";
+import { usePosts, usePostsById, useUserById, usePostsByUserId } from "../../../hooks/api";
 import "./Profile.css"
 
 
 const Profile = () => {
-  const info = useMyInfo();
-  const posts = usePostsById(info.data.user.id);
+  const userId = window.location.pathname.split("/")[2];
+  //const info = useMyInfo();
+  const info = useUserById(userId);
+  const posts = usePostsByUserId(userId);
   const [avatar, setAvatar] = useState(info.data.user.avatar);
+  console.log('posts', posts);
+  //console.log('window.location.pathname', window.location.pathname);
 
   const handleAvatarChange = (event) => {
     const file = event.target.files[0];
