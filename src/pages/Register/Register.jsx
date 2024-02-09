@@ -7,8 +7,8 @@ const Register = () => {
   const [password, setPassword] = useState('');
   const [password2, setPassword2] = useState('');
   const [email, setEmail] = useState('');
-  const [user, setUser] = useUser();
   const [errorMessage, setErrorMessage] = useState('');
+  const [userRegister, setUserRegister] = useState('');
 
   const handleForm = async (event) => {
     event.preventDefault();
@@ -22,15 +22,16 @@ const Register = () => {
 
     const response = await res.json();
     if (res.ok) {
-      setUser(response);
+      setUserRegister(true)
     } else {
       setErrorMessage("Ocurrió un error durante el registro.");
     }
   };
 
-  if (user?.username) {
+
+  if (userRegister) {
     return (
-      <h2>Bienvenido, {user.username}</h2>
+      <h2>Bienvenido, Por favor revisa tu correo para validar tu usuario </h2>
     );
   }
 

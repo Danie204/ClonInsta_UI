@@ -18,7 +18,9 @@ const UserInfoLoggedIn = () => {
   const info = useMyInfo()
   return (
     <span className="userinfo">
-     <Link to={`/profile/${info.data.user.id}`}> {info.data.user.username}</Link> 
+     <Link to={`/profile/${info.data.user.id}`}onClick={() => setTimeout(() => {
+  window.location.reload()
+}, "100")}> {info.data.user.username} </Link> 
       <img src={`http://localhost:3000/${info.data.user.avatar}`} /> 
       <span className="logout" onClick={() => setUser()}>⏻</span>
     </span>

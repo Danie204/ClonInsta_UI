@@ -1,5 +1,6 @@
 #home .Posts {
   display: inline-block;
+  margin-top: 80px !important;
   border-radius: 8px;
   width: 768px;
   height: 768px;

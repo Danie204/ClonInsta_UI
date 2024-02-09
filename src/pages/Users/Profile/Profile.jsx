@@ -1,6 +1,8 @@
+import { React }from 'react';
 import { useState } from 'react';
 import { usePosts, usePostsById, useUserById, usePostsByUserId } from "../../../hooks/api";
 import "./Profile.css"
+import { Link } from 'react-router-dom';
 
 
 const Profile = () => {
@@ -10,6 +12,7 @@ const Profile = () => {
   const posts = usePostsByUserId(userId);
   const [avatar, setAvatar] = useState(info.data.user.avatar);
   console.log('posts', posts);
+  
   //console.log('window.location.pathname', window.location.pathname);
 
   const handleAvatarChange = (event) => {
@@ -17,11 +20,7 @@ const Profile = () => {
     const reader = new FileReader();
 
     reader.onloadend = () => {
-      // Aquí puedes hacer lo que necesites con el resultado, como enviarlo al servidor
-      // En este ejemplo, actualizamos el estado local `avatar` con la URL base64 de la imagen
       setAvatar(reader.result);
-
-      // Envía la imagen al servidor
       uploadAvatar(reader.result);
     };
 
@@ -91,7 +90,7 @@ const Profile = () => {
       <div className="posts">
         {posts &&
           posts.data.photos.map((e) => (
-            <img src={`http://localhost:3000/${e.imagenURL}`} key={e.id} />
+           <Link to={`/posts/${e.id}`}> <img src={`http://localhost:3000/${e.imagenURL}`} key={e.id} /></Link>
           ))}
       </div>
     </>

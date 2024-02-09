@@ -17,6 +17,7 @@
 
 /* Estilos para el tema claro */
 .light-theme {
+  z-index: 10;
   background-color: #ffffff; /* Fondo blanco */
   color: #000000; /* Texto negro */
 }
@@ -32,6 +33,7 @@
 
 /* Estilos para el tema oscuro */
 .dark-theme {
+  z-index: 10;
   background-color: #121212; /* Fondo oscuro */
   color: #ffffff; /* Texto blanco */
 }
