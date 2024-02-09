@@ -11,13 +11,14 @@ const Post = () => {
   
   return (
     <>
-        <h3>{data.description}</h3>
+       
         <div
           className="Posts"
           style={{
             backgroundImage: `url("http://localhost:3000/${data.imagenURL}")`,
           }}
-        >
+        > 
+        <h3>{data.description}</h3>
           <span className="author">
             Por
             <button

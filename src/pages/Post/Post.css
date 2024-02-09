@@ -19,6 +19,12 @@
   color: white;
 }
 
+.Posts h3 {
+  position: relative;
+  font-size: 250%;
+  margin: 0;
+}
+
 .Posts::before {
   content: "";
   display: block;
@@ -30,17 +36,11 @@
   
 }
 
-#home .Posts h3 {
-  position: relative;
-  font-size: 250%;
-  margin: 0;
-}
-
-#home .Posts .metadata {
+.Posts .metadata {
   position: relative;
 }
 
-#home .Posts .metadata span {
+.Posts .metadata span {
   display: inline-block;
   margin: 0 5px;
 }
