@@ -12,6 +12,7 @@ import Register from "./pages/Register/Register";
 import Profile from "./pages/Users/Profile/Profile";
 import "./App.css";
 import EditAvatar from "./pages/Users/Profile/EditAvatar";
+import Posts from "./pages/Home/Posts";
 
 function App() {
   const [filtros, setFiltros] = useState("");
@@ -19,10 +20,7 @@ function App() {
   console.log("API URL:", import.meta.env.VITE_API_URL);
   return (
     <div>
-      <Header
-        username={import.meta.env.VITE_USERNAME}
-        role={import.meta.env.VITE_ROLE}
-      />
+
       <>
         <Header setFiltros={setFiltros} />
         <ErrorBoundary key={location.key} fallback={<GenericError />}>
@@ -32,9 +30,10 @@ function App() {
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
               <Route path="/posts" element={<CreatePost />} />
-              <Route path="/posts/:id" element={<Post />} />
+              <Route path="/posts/:id" element={<Posts />} />
+              <Route path="/post/:id" element={<Post />} />
               <Route path="/profile/:id" element={<Profile />} />
-              <Route path="/profile/:id" element={<EditAvatar />} />
+              <Route path="/profile" element={<EditAvatar />} />
             </Routes>
           </Suspense>
         </ErrorBoundary>

@@ -51,7 +51,7 @@ const Posts = ({ data }) => {
           </span>
           {"  "}
           <span className="timeAgo"> Hace {timeAgoText}</span>
-          {"  "}
+          {" - "}
         </div>
       </Link>
       <Like postId={data.id} likes={data.likes} />
