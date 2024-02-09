@@ -24,7 +24,7 @@ const Posts = ({ data }) => {
 
   return (
     <>
-      <Link className="Posts" style={style} to={`/posts`}>
+      <Link className="Posts" style={style} to={`/posts/${data.id}`}>
         <h3>{data.description}</h3>
         <div
           className="Posts"

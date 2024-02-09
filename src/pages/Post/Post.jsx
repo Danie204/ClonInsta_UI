@@ -1,42 +1,45 @@
-import { usePostsById } from "../../hooks/api"; 
-import Posts from '../Home/Posts'
-
-const Post = ({ user }) => { 
-  const { data } = usePostsById(user.id); 
-  
-  return (
-    <div id="post">
-      <h3>Hola Mundo</h3> 
-      <Posts /> 
-    </div>
-  );
-};
-
-export default Post;
-
-
-
-/*import { FormattedDate } from "react-intl";
+import { FormattedDate } from "react-intl";
 import { usePostsById } from "../../hooks/api"; 
 import './Post.css';
+import Like from "../Home/Like";
 
-const Post = ({ postId }) => { 
-  const post = usePostsById(postId); 
+const Post = () => { 
+  const postId = window.location.pathname.split('/')[2];
+  const result = usePostsById(postId); 
+  const data = result.data.post;
+
   
   return (
-    <div id="post">
-        <h3>{post.data.description}</h3> 
-      <div className="metadata">
-        <span className="author">Por {post.data.username}</span> 
-        <span className="date">
-          <FormattedDate value={post.data.createdAt} month="long" day="numeric" /> 
-        </span>
-      </div>
-      <main>
-        {post.data.content} 
-      </main>
-    </div>
+    <>
+        <h3>{data.description}</h3>
+        <div
+          className="Posts"
+          style={{
+            backgroundImage: `url("http://localhost:3000/${data.imagenURL}")`,
+          }}
+        >
+          <span className="author">
+            Por
+            <button
+              className="profile-button"
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                navigate(`/profile/${data.userId}`);
+              }}
+            >
+              {data.username}
+            </button>
+          </span>
+          {" - "}
+          <span className="date">
+            <FormattedDate value={data.createdAt} month="long" day="numeric" />
+          </span>
+          {" - "}
+        </div>
+      <Like postId={data.id} likes={data.likes} />
+    </>
   );
 };
 
-export default Post; */
+export default Post; 
