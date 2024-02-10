@@ -5,7 +5,7 @@
   text-align: center;
 }
 
-button {
+.button {
   display: flex;
   line-height: 30px;
   align-items: center;

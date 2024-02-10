@@ -1,41 +1,3 @@
-.Posts {
-  display: inline-block;
-  margin-top: 80px !important;
-  border-radius: 8px;
-  width: 768px;
-  height: 768px;
-  background-color: #333;
-  background-position: center;
-  background-size: cover;
-  margin: 0 auto 30px;
-  position: relative;
-  text-align: center;
-  overflow: hidden;
-  box-shadow: rgba(0, 0, 0, 0.4) 5px 5px 15px;
-  box-sizing: border-box;
-
-  flex-direction: column;
-  justify-content: center;
-  cursor: pointer;
-  color: white;
-}
-
-.Posts h3 {
-  position: relative;
-  font-size: 250%;
-  margin: 0;
-}
-
-.Posts::before {
-  content: "";
-  display: block;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  
-}
 
 .Posts .metadata {
   position: relative;
@@ -46,15 +8,9 @@
   margin: 0 5px;
 }
 
-.profile-button {
-  display: inline;
-  background: none;
-  color: white;
-  font-weight: bold;
-  padding: 4px;
-}
-
-#home .style {
-  background-size: contain;
-  background-repeat: no-repeat;
+.posts img {
+  width: 96px;
+  height: 96px;
+  object-fit:cover;
+  padding: 1px 1px 1px;
 }

@@ -11,7 +11,6 @@ import Loading from './Components/Loading/Loading'
 import Register from './pages/Register/Register'
 import Profile from './pages/Users/Profile/Profile'
 import './App.css'
-//import EditAvatar from './pages/Users/Profile/EditAvatar'
 
 function App() {
   const [filtros, setFiltros] = useState("")

@@ -24,7 +24,7 @@ const Home = ({ filtros }) => {
       <h2>Entradas Recientes </h2>
       {user && (
         <Link className="new-posts-link" to="/Posts">
-          <h3 className="new-posts">Nuevo Post</h3>
+          <h3>Nuevo Post</h3>
         </Link>
       )}
       {posts && posts.map((e) => <Posts key={e.id} data={e} />)}

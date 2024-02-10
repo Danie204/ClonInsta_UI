@@ -1,4 +1,4 @@
-import { React }from 'react';
+import React from 'react';
 import { useState } from 'react';
 import { useUserById, usePostsByUserId } from "../../../hooks/api";
 import { Link } from 'react-router-dom';
@@ -10,7 +10,6 @@ const Profile = () => {
   const info = useUserById(userId);
   const posts = usePostsByUserId(userId);
   const [avatar, setAvatar] = useState(info.data.user.avatar);
-  console.log('posts', posts);
 
   const handleAvatarChange = (event) => {
     const file = event.target.files[0];
@@ -27,44 +26,15 @@ const Profile = () => {
     }
   };
 
-  const uploadAvatar = async (base64Image) => {
-    try {
-      const response = await fetch("http://localhost:3000/users/avatar", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ avatar: base64Image }),
-      });
-
-      if (!response.ok) {
-        throw new Error("Error al subir el avatar");
-      }
-
-    } catch (error) {
-      console.error("Error:", error);
-    }
-  };
-
   return (
     <>
       <div>
-        <div>
           <h1>{info.data.user.username}</h1>
           <h2 className="avatarinfo">
-            <label htmlFor="avatarInput">
+            <form htmlFor="avatarInput">
               <img src={`http://localhost:3000/${avatar}`} alt="Avatar" />
-            </label>
-            <input
-              id="avatarInput"
-              type="file"
-              accept="image/*"
-              style={{ display: "none" }}
-              onChange={handleAvatarChange}
-            />
-          </h2>
-          <Avatar />
-        </div>
+            </form>
+          </h2> <Avatar />
         <div>
           <div>
             <span>50</span>
@@ -89,7 +59,7 @@ const Profile = () => {
           posts.data.photos.map((e) => (
            <Link to={`/posts/${e.id}`}> <img src={`http://localhost:3000/${e.imagenURL}`} key={e.id} /></Link>
           ))}
-      </div>
+      </div> 
     </>
   );
 };

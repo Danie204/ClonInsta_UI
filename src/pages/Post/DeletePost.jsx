@@ -18,7 +18,7 @@ const DeletePost = ({ postId, onSuccess }) => {
     }
   };
 
-  return <button onClick={handleDelete}>Eliminar Post</button>;
+  return <button className="button" onClick={handleDelete}>Eliminar Post</button>;
 };
 
 export default DeletePost;

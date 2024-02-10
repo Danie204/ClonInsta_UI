@@ -4,7 +4,6 @@ import { useUser } from "../../UserContext";
 import addImage from '/add-fill-9-512.png';
 import { FormattedMessage } from "react-intl";
 import DeletePost from './DeletePost';
-import './CreatePost.css';
 
 const CreatePost = () => {
   const [description, setDescription] = useState('');
@@ -56,8 +55,8 @@ const CreatePost = () => {
           style={{
             display: 'block',
             margin: '0 auto',
-            maxWidth: '200px', 
-            maxHeight: '200px', 
+            maxWidth: '400px', 
+            maxHeight: '400px', 
           }}
         />
       </label>

@@ -1,25 +1,32 @@
-#home .Posts {
+.Posts {
   display: inline-block;
-  margin-top: 80px !important;
+  margin-top: 0 !important;
   border-radius: 8px;
-  width: 768px;
-  height: 768px;
-  background-color: #f37442;
+  width: 350px;
+  height: 550px;
+  object-fit: cover;
   background-position: center;
   background-size: cover;
-  margin: 0 auto 30px;
+  margin: 0 auto 10px;
   position: relative;
   text-align: center;
   overflow: hidden;
+  box-shadow: rgba(37, 36, 38, 0.4) 5px 5px 15px;
   box-sizing: border-box;
-
   flex-direction: column;
   justify-content: center;
   cursor: pointer;
   color: white;
+
 }
 
-#home .Posts::before {
+.Posts h3 {
+  position: relative;
+  font-size: 250%;
+  margin: 0;
+}
+
+.Posts::before {
   content: "";
   display: block;
   position: absolute;
@@ -28,21 +35,6 @@
   left: 0;
   right: 0;
   
-}
-
-#home .Posts h3 {
-  position: relative;
-  font-size: 250%;
-  margin: 0;
-}
-
-#home .Posts .metadata {
-  position: relative;
-}
-
-#home .Posts .metadata span {
-  display: inline-block;
-  margin: 0 5px;
 }
 
 .profile-button {

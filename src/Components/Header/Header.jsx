@@ -26,7 +26,7 @@ const Header = ({ setFiltros }) => {
   };
 
   return (
-    <header className="header">
+    <header className={theme === "light" ? "light-theme" : "dark-theme"}>
       <nav>
         <Link to="/">
           <button>
@@ -57,8 +57,8 @@ const Header = ({ setFiltros }) => {
       <button onClick={handleSearch}>Buscar</button>
 
       <button onClick={toggleTheme}>
-        {theme === "light" ? "Cambiar a tema oscuro" : 
-        "Cambiar a tema claro"}
+        {theme === "light" ? "Tema oscuro" : 
+        "Tema claro"}
       </button>
       <UserInfo />
     </header>
