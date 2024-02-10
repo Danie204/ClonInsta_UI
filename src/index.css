@@ -14,13 +14,13 @@
 }
 
 a {
-  font-weight: 00;
+  font-weight:bolder;
   color: #a9388d;
   text-decoration: inherit;
 }
 
 body {
-  margin: 0;
+  margin: 10;
   display: flex;
   place-items: center;
   min-width: 320px;
@@ -50,9 +50,6 @@ button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
-
-
-
 
 @media (prefers-color-scheme: light) {
   :root {

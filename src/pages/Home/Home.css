@@ -1,5 +1,12 @@
 
 #home h2 {
+  align-items: center;
+  margin: 50px;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+#home h3 {
   text-align: center;
   margin-bottom: 30px;
 }

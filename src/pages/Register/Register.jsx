@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { useUser } from "../../UserContext";
+//import { useUser } from "../../UserContext";
 
 const Register = () => {
   const [username, setUsername] = useState('');
