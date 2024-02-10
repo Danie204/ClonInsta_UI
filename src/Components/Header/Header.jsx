@@ -3,9 +3,7 @@ import { Link } from "react-router-dom";
 import { useLang } from "../IntlContext";
 import UserInfo from "../../Components/Header/UserInfo";
 import "./Header.css";
-import { listPosts } from "../../hooks/api";
 import { useUser } from "../../UserContext";
-import "./Header.css";
 
 const Header = ({ setFiltros }) => {
   const [lang, setLang] = useLang();

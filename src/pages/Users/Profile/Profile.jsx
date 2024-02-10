@@ -41,10 +41,8 @@ const Profile = () => {
         throw new Error("Error al subir el avatar");
       }
 
-      // Actualizar el avatar en la API si es necesario
     } catch (error) {
       console.error("Error:", error);
-      // Manejar el error según sea necesario
     }
   };
 
