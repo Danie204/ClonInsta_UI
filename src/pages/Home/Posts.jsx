@@ -32,8 +32,9 @@ const Posts = ({ data }) => {
           style={{
             backgroundImage: `url("http://localhost:3000/${data.imagenURL}")`,
           }}
-        ><h3>{data.description}</h3>
-        
+        >
+          <h3>{data.description}</h3>
+
           <span className="author">
             Por
             <button
@@ -47,7 +48,7 @@ const Posts = ({ data }) => {
               {data.username}
             </button>
           </span>
-          {" El "}
+          {"El "}
           <span className="date">
             <FormattedDate value={data.createdAt} month="long" day="numeric" />
           </span>
