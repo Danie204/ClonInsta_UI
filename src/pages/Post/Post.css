@@ -9,8 +9,9 @@
 }
 
 .posts img {
+  object-fit:cover;
   width: 96px;
   height: 96px;
-  object-fit:cover;
   padding: 1px 1px 1px;
+  border-radius: 5px;
 }

@@ -4,6 +4,7 @@
   }
   
   .avatarinfo img {
+    object-fit:cover;
     width: 120px;
     height: 120px;
     border-radius: 120px;
@@ -34,3 +35,4 @@
     cursor: pointer;
     transition: border-color 0.25s
   } 
+    

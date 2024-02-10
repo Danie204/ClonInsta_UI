@@ -7,13 +7,13 @@
   border: none;
   border-radius: 5px;
   overflow: hidden;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.089);
+  box-shadow: 5px 5px 10px rgba(93, 66, 66, 0.089);
   cursor: pointer;
   background-color: transparent;
 }
 
 .leftContainer {
-  width: 60%;
+  width: 30%;
   height: 100%;
   background-color: rgb(238, 0, 0);
   display: flex;
@@ -29,7 +29,7 @@
 }
 
 .likeCount {
-  width: 40%;
+  width: 60%;
   height: 100%;
   display: flex;
   align-items: center;
@@ -64,18 +64,4 @@
 }
 
 
-/*
-.like {
-  border: 1px solid black;
-  border-radius: 100%;
-  display: inline-block;
-  width: 30px;
-  height: 30px;
-  cursor: pointer;
-}
 
-.like.active {
-  background-color: rgb(220, 33, 0);
-  align-items: center;
-  
-} */

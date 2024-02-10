@@ -9,7 +9,9 @@ const UserInfo = () => {
   if (user) return <UserInfoLoggedIn />
 
   return (
+    <button>
     <Link to="/login">Iniciar sesión</Link>
+    </button>
   )
 }
 

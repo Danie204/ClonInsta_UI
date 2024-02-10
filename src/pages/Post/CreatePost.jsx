@@ -4,6 +4,7 @@ import { useUser } from "../../UserContext";
 import addImage from '/add-fill-9-512.png';
 import { FormattedMessage } from "react-intl";
 import DeletePost from './DeletePost';
+import './Post.css'
 
 const CreatePost = () => {
   const [description, setDescription] = useState('');
@@ -67,7 +68,7 @@ const CreatePost = () => {
         onChange={handleChange}
         style={{ display: 'none' }}
       />
-      <input
+      <input 
         name="description"
         type="text"
         placeholder="Descripción..."

@@ -1,7 +1,6 @@
 .Posts {
   display: inline-block;
-  margin-top: 0 !important;
-  border-radius: 8px;
+  border-radius: 10px;
   width: 350px;
   height: 550px;
   object-fit: cover;
@@ -22,8 +21,15 @@
 
 .Posts h3 {
   position: relative;
-  font-size: 250%;
-  margin: 0;
+  font-size: 150%;
+  margin: 5px;
+}
+
+.Posts h4 {
+  position: relative;
+  font-size: 150%;
+  margin: 5px;
+  color:black
 }
 
 .Posts::before {

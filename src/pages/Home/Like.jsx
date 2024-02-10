@@ -34,18 +34,3 @@ const Like = ({ postId, initialLiked, likes }) => {
 export default Like;
 
 
-/* sin ningún CSS
- return (
-    <button class="Btn">
-      <div>
-        <span
-          class="leftContainer"
-          onClick={toggleLike}
-          className={"like " + (liked ? "active" : "inactive")}
-        ></span>{" "}
-        {n} {n === 1 ? "Like" : "Likes"}
-      </div>
-    </button>
-  );
-};
-*/
