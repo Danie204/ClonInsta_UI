@@ -26,9 +26,11 @@ const Home = ({ filtros }) => {
         <FormattedMessage id="home.newPosts" />{" "}
       </h2>
       {user && (
+       <h3>
         <Link className="new-posts-link" to="/Posts">
           <FormattedMessage id="home.newPost" />
-        </Link>
+        </Link> 
+        </h3> 
       )}
       {posts && posts.map((e) => <Posts key={e.id} data={e} />)}
     </div>
