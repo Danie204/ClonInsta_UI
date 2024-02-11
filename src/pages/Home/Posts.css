@@ -1,35 +1,55 @@
-.Posts {
+.PostContainer {
   display: inline-block;
+  flex-direction: column;
+}
+
+.PostsContainer {
+  display: inline-block;
+  flex-direction: column;
+  margin: 100px 0px 0px;
+
+}
+
+.PostImage {
   border-radius: 10px;
-  width: 350px;
-  height: 550px;
+  width: 450px;
+  height: 650px;
   object-fit: cover;
   background-position: center;
   background-size: cover;
   margin: 0 auto 10px;
   position: relative;
-  text-align: center;
-  overflow: hidden;
   box-shadow: rgba(37, 36, 38, 0.4) 5px 5px 15px;
-  box-sizing: border-box;
+}
+
+.PostContent {
+    padding: 0.5px;
+}
+
+.PostContent h3 {
+  text-align: center;
+  position: relative;
+  font-size: 25px;
+  margin: 2px;
+  cursor: pointer;
+  color: rgb(71, 66, 66);
+}
+
+.PostInfo {
+  font-size: 18px;
+  margin: 0px 0px 0px;
+  cursor: pointer;
+  color: rgb(57, 51, 51);
+}
+
+.PostInfo .author {
+  font-size: 18px;
+  margin: 0px 0px 0px;
+   box-sizing: border-box;
   flex-direction: column;
   justify-content: center;
   cursor: pointer;
-  color: white;
-
-}
-
-.Posts h3 {
-  position: relative;
-  font-size: 150%;
-  margin: 5px;
-}
-
-.Posts h4 {
-  position: relative;
-  font-size: 150%;
-  margin: 5px;
-  color:black
+  color: rgb(104, 72, 72);
 }
 
 .Posts::before {
@@ -39,19 +59,45 @@
   top: 0;
   bottom: 0;
   left: 0;
-  right: 0;
-  
+  right: 0; 
 }
 
-.profile-button {
+.PostInfo .profile-button {
   display: inline;
   background: none;
-  color: white;
+  color: rgb(76, 5, 5);
   font-weight: bold;
-  padding: 4px;
+  padding: 1px;
 }
 
-#home .style {
-  background-size: contain;
-  background-repeat: no-repeat;
+.PostActions {
+  display:flex;
+}
+
+.PostActions > * {
+  margin: 0px 50px 80px; 
+}
+
+.PostInfo .date {
+  font-size: 15px;
+  margin: 0px 0px 0px;
+  cursor: pointer;
+  color: rgb(57, 51, 51);
+}
+
+
+.PostInfo .time-ago {
+  font-size: 15px;;
+  margin: 0px 0px 0px;
+  cursor: pointer;
+  color: rgb(57, 51, 51);
+}
+
+
+.posts img {
+  object-fit:cover;
+  width: 96px;
+  height: 96px;
+  padding: 1px 1px 1px;
+  border-radius: 5px;
 }

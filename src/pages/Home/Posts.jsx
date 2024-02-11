@@ -27,38 +27,44 @@ const Posts = ({ data }) => {
 
   return (
     <>
-      <Link className="Posts" style={style} to={`/posts/${data.id}`}>
-        <div
-          className="Posts"
-          style={{
-            backgroundImage: `url("http://localhost:3000/${data.imagenURL}")`,
-          }}
-        >
-          <h3>{data.description}</h3>
-
-          <span className="author">
-            <FormattedMessage id="posts.author" />
-            <button
-              className="profile-button"
-              onClick={(e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                navigate(`/profile/${data.userId}`);
-              }}
-            >
-              {data.username}
-            </button>
-          </span>
+      <Link className="PostLink" to={`/posts/${data.id}`}>
+  <div className="PostContainer">
+    <div
+      className="PostImage"
+      style={{
+        backgroundImage: `url("http://localhost:3000/${data.imagenURL}")`,
+      }}
+    ></div>
+    <div className="PostContent">
+      <h3>{data.description}</h3>
+      <div className="PostInfo">
+        <span className="author">
+          <FormattedMessage id="posts.author" />
+          <button
+            className="profile-button"
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              navigate(`/profile/${data.userId}`);
+            }}
+          >
+            {data.username}
+          </button>
+        </span>
+        <span className="date">
           <FormattedMessage id="posts.date" />
-          <span className="date">
-            <FormattedDate value={data.createdAt} month="long" day="numeric" />
-          </span>
-          {" - "}
-          <span className="time-ago"> Hace {timeAgoText}</span>
-        </div>
-      </Link>
-      <Like postId={data.id} likes={data.likes} />
-      <DeletePost postId={data.id} />
+          <FormattedDate value={data.createdAt} month="long" day="numeric" />
+        </span>
+        {" -"}
+        <span className="time-ago"> Hace {timeAgoText}</span>
+      </div>
+    </div>
+  </div>
+</Link>
+<div className="PostActions">
+    <Like postId={data.id} likes={data.likes} />
+    <DeletePost postId={data.id} />
+  </div>
     </>
   );
 };

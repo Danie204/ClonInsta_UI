@@ -4,7 +4,7 @@ import { useUser } from "../../UserContext";
 import addImage from "/add-fill-9-512.png";
 import { FormattedMessage } from "react-intl";
 import DeletePost from "./DeletePost";
-import "./Post.css";
+import "./CreatePost.css";
 
 const CreatePost = () => {
   const [description, setDescription] = useState("");
@@ -48,40 +48,41 @@ const CreatePost = () => {
   };
 
   return (
-    <div>
-      <label htmlFor="fileInput">
-        <img
-          src={preview || addImage}
-          alt="Preview"
-          style={{
-            display: "block",
-            margin: "0 auto",
-            maxWidth: "400px",
-            maxHeight: "400px",
-          }}
-        />
-      </label>
-      <input
-        id="fileInput"
-        type="file"
-        accept="image/*"
-        onChange={handleChange}
-        style={{ display: "none" }}
-      />
-      <input
-        name="description"
-        type="text"
-        placeholder="Descripción..."
-        value={description}
-        onChange={(e) => setDescription(e.target.value)}
-      />
-      <button onClick={handleSubmit}>
-        <FormattedMessage id="post.createPost" />
-      </button>
-      {postIdtoDelete && (
-        <DeletePost postId={postIdtoDelete} onSuccess={handleDeleteSuccess} />
-      )}
-    </div>
+    <div className="container">
+  <label htmlFor="fileInput">
+    <img
+      src={preview || addImage}
+      alt="Preview"
+      style={{
+        display: "block",
+        margin: "0 auto",
+        maxWidth: "400px",
+        maxHeight: "400px",
+      }}
+    />
+  </label>
+  <input
+    id="fileInput"
+    type="file"
+    accept="image/*"
+    onChange={handleChange}
+    style={{ display: "none" }}
+  />
+  <input
+    name="description"
+    type="text"
+    placeholder="Descripción..."
+    value={description}
+    onChange={(e) => setDescription(e.target.value)}
+  />
+  <button onClick={handleSubmit}>
+    <FormattedMessage id="post.createPost" />
+  </button>
+  {postIdtoDelete && (
+    <DeletePost postId={postIdtoDelete} onSuccess={handleDeleteSuccess} />
+  )}
+</div>
+
   );
 };
 

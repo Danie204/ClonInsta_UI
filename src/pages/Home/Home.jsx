@@ -21,9 +21,9 @@ const Home = ({ filtros }) => {
   }, [filtros]);
 
   return (
-    <div id="home">
+    <div>
       <h2>
-        <FormattedMessage id="home.newPosts" />{" "}
+        <FormattedMessage id="home.newPosts" />{""}
       </h2>
       {user && (
        <h3>

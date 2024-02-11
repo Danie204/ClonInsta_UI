@@ -1,17 +1,4 @@
 
-.Posts .metadata {
-  position: relative;
-}
 
-.Posts .metadata span {
-  display: inline-block;
-  margin: 0 5px;
-}
 
-.posts img {
-  object-fit:cover;
-  width: 96px;
-  height: 96px;
-  padding: 1px 1px 1px;
-  border-radius: 5px;
-}
+
