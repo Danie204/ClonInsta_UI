@@ -28,38 +28,44 @@ const Profile = () => {
 
   return (
     <>
+      <div className="container">
+  <div>
+    <h1>{info.data.user.username}</h1>
+    <h2 className="avatarinfo">
+      <form htmlFor="avatarInput">
+        <img src={`http://localhost:3000/${avatar}`} alt="Avatar" />
+      </form>
+    </h2> 
+    <Avatar />
+    <div>
       <div>
-          <h1>{info.data.user.username}</h1>
-          <h2 className="avatarinfo">
-            <form htmlFor="avatarInput">
-              <img src={`http://localhost:3000/${avatar}`} alt="Avatar" />
-            </form>
-          </h2> <Avatar />
-        <div>
-          <div>
-            <span>50</span>
-            <span>Publicaciones</span>
-          </div>
-          <div>
-            <span>492</span>
-            <span>Seguidores</span>
-          </div>
-          <div>
-            <span>950</span>
-            <span>Seguidos</span>
-          </div>
-          <div>
-            <span>50</span>
-            <span>Publicaciones</span>
-          </div>
-        </div>
+        <span>50</span>
+        <span>Publicaciones</span>
       </div>
-      <div className="posts">
-        {posts &&
-          posts.data.photos.map((e) => (
-           <Link to={`/posts/${e.id}`}> <img src={`http://localhost:3000/${e.imagenURL}`} key={e.id} /></Link>
-          ))}
-      </div> 
+      <div>
+        <span>492</span>
+        <span>Seguidores</span>
+      </div>
+      <div>
+        <span>950</span>
+        <span>Seguidos</span>
+      </div>
+      <div>
+        <span>50</span>
+        <span>Publicaciones</span>
+      </div>
+    </div>
+  </div>
+  <div className="posts">
+    {posts &&
+      posts.data.photos.map((e) => (
+        <Link to={`/posts/${e.id}`} key={e.id}>
+          <img src={`http://localhost:3000/${e.imagenURL}`} />
+        </Link>
+      ))}
+  </div> 
+</div>
+
     </>
   );
 };

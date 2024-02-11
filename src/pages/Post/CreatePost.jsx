@@ -32,15 +32,10 @@ const CreatePost = () => {
       },
       body: fd,
     });
-    if (!user || !user.token) {
+    if (!user) {
       console.error("El usuario o el token es undefined.");
     }
-
-    if (res.ok) {
-      const data = await res.json();
-      console.log(data.data.posts.id);
-      navigate("/post/" + data.data.posts.id);
-    }
+      navigate("/");
   };
 
   const handleDeleteSuccess = () => {

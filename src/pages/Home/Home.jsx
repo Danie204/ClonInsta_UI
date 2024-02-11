@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useTheme } from "../../ThemeContext";
-import { listPosts } from "../../hooks/api";
+import { listPosts, useMyInfo } from "../../hooks/api";
 import { useUser } from "../../UserContext";
 import Posts from "./Posts";
 import "./Home.css";
@@ -11,6 +11,7 @@ const Home = ({ filtros }) => {
   const [posts, setPosts] = useState([]);
   const [user] = useUser();
   const [theme] = useTheme();
+  const info = useMyInfo();
 
   useEffect(() => {
     const getListPost = async () => {
@@ -19,6 +20,12 @@ const Home = ({ filtros }) => {
     };
     getListPost();
   }, [filtros]);
+
+  const handlePostDelete = (postId) => {
+    console.log(postId) 
+    const newPosts = posts.filter(post => post.id!=postId);
+    setPosts(newPosts);
+  }
 
   return (
     <div>
@@ -32,7 +39,7 @@ const Home = ({ filtros }) => {
         </Link> 
         </h3> 
       )}
-      {posts && posts.map((e) => <Posts key={e.id} data={e} />)}
+      {posts && posts.map((e) => <Posts key={e.id} data={e} onDelete={handlePostDelete} currentUser={info.data.user}/>)}
     </div>
   );
 };
