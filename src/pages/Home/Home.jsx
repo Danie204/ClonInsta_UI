@@ -5,6 +5,7 @@ import { useUser } from "../../UserContext";
 import Posts from "./Posts";
 import "./Home.css";
 import { useEffect, useState } from "react";
+import { FormattedMessage } from "react-intl";
 
 const Home = ({ filtros }) => {
   const [posts, setPosts] = useState([]);
@@ -21,10 +22,12 @@ const Home = ({ filtros }) => {
 
   return (
     <div id="home">
-      <h2>Entradas Recientes </h2>
+      <h2>
+        <FormattedMessage id="home.newPosts" />{" "}
+      </h2>
       {user && (
         <Link className="new-posts-link" to="/Posts">
-          <h3>Nuevo Post</h3>
+          <FormattedMessage id="home.newPost" />
         </Link>
       )}
       {posts && posts.map((e) => <Posts key={e.id} data={e} />)}

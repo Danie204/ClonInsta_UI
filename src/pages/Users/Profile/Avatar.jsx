@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useUser } from "../../../UserContext";
-import addImage from '/add-fill-9-512.png';
+import addImage from "/add-fill-9-512.png";
 import { FormattedMessage } from "react-intl";
 import "./Profile.css";
 
@@ -61,11 +61,10 @@ const Avatar = () => {
         style={{ display: "none" }}
       />
       <button className="avatar" onClick={handleSubmit}>
-        <FormattedMessage id="Cambiar foto de perfil" />
+        <FormattedMessage id="avatar.profile" />
       </button>
     </div>
   );
 };
 
 export default Avatar;
-

@@ -1,4 +1,5 @@
 import { FormattedDate } from "react-intl";
+import { FormattedMessage } from "react-intl";
 import { usePostsById } from "../../hooks/api";
 import { useNavigate } from "react-router-dom";
 import "./Post.css";

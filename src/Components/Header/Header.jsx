@@ -4,6 +4,7 @@ import { useLang } from "../IntlContext";
 import UserInfo from "../../Components/Header/UserInfo";
 import "./Header.css";
 import { useUser } from "../../UserContext";
+import { FormattedMessage } from "react-intl";
 
 const Header = ({ setFiltros }) => {
   const [lang, setLang] = useLang();
@@ -36,7 +37,7 @@ const Header = ({ setFiltros }) => {
       </nav>
       <Link to="/posts">
         <button>
-          <span>Publicar</span>
+          <FormattedMessage id="header.post" />
         </button>
       </Link>
 
@@ -54,11 +55,12 @@ const Header = ({ setFiltros }) => {
         onChange={handleSearchChange}
       />
 
-      <button onClick={handleSearch}>Buscar</button>
+      <button onClick={handleSearch}>
+        <FormattedMessage id="header.search" />
+      </button>
 
       <button onClick={toggleTheme}>
-        {theme === "light" ? "Tema oscuro" : 
-        "Tema claro"}
+        {theme === "light" ? "Tema oscuro" : "Tema claro"}
       </button>
       <UserInfo />
     </header>

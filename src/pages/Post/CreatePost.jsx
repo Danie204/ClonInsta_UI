@@ -1,45 +1,45 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useUser } from "../../UserContext";
-import addImage from '/add-fill-9-512.png';
+import addImage from "/add-fill-9-512.png";
 import { FormattedMessage } from "react-intl";
-import DeletePost from './DeletePost';
-import './Post.css'
+import DeletePost from "./DeletePost";
+import "./Post.css";
 
 const CreatePost = () => {
-  const [description, setDescription] = useState('');
+  const [description, setDescription] = useState("");
   const [preview, setPreview] = useState();
   const [photo, setPhoto] = useState();
   const [user] = useUser();
   const navigate = useNavigate();
   const [postIdtoDelete, setPostIdtoDelete] = useState(null);
 
-  const handleChange = e => {
+  const handleChange = (e) => {
     const file = e.target.files[0];
     setPhoto(file);
     setPreview(URL.createObjectURL(file));
   };
 
-  const handleSubmit = async e => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const fd = new FormData();
-    fd.append('description', description);
-    fd.append('photo', photo);
-    const res = await fetch('http://localhost:3000/posts', {
-      method: 'POST',
-      headers: { 
-        'Authorization' : `${user}`
-      }, 
-      body: fd
+    fd.append("description", description);
+    fd.append("photo", photo);
+    const res = await fetch("http://localhost:3000/posts", {
+      method: "POST",
+      headers: {
+        Authorization: `${user}`,
+      },
+      body: fd,
     });
     if (!user || !user.token) {
       console.error("El usuario o el token es undefined.");
     }
-   
+
     if (res.ok) {
       const data = await res.json();
       console.log(data.data.posts.id);
-      navigate('/post/' + data.data.posts.id);
+      navigate("/post/" + data.data.posts.id);
     }
   };
 
@@ -54,10 +54,10 @@ const CreatePost = () => {
           src={preview || addImage}
           alt="Preview"
           style={{
-            display: 'block',
-            margin: '0 auto',
-            maxWidth: '400px', 
-            maxHeight: '400px', 
+            display: "block",
+            margin: "0 auto",
+            maxWidth: "400px",
+            maxHeight: "400px",
           }}
         />
       </label>
@@ -66,16 +66,18 @@ const CreatePost = () => {
         type="file"
         accept="image/*"
         onChange={handleChange}
-        style={{ display: 'none' }}
+        style={{ display: "none" }}
       />
-      <input 
+      <input
         name="description"
         type="text"
         placeholder="Descripción..."
         value={description}
-        onChange={e => setDescription(e.target.value)}
+        onChange={(e) => setDescription(e.target.value)}
       />
-      <button onClick={handleSubmit}><FormattedMessage id="Publicar" /></button>
+      <button onClick={handleSubmit}>
+        <FormattedMessage id="post.createPost" />
+      </button>
       {postIdtoDelete && (
         <DeletePost postId={postIdtoDelete} onSuccess={handleDeleteSuccess} />
       )}
@@ -84,10 +86,6 @@ const CreatePost = () => {
 };
 
 export default CreatePost;
-
-
-
-
 
 /*
 import { useState } from "react"
