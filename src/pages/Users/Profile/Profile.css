@@ -26,8 +26,9 @@
   background-color: #fafafa;
   color: black;
   cursor: pointer;
-  transition: border-color 0.25s;
+  transition: border-color 0.25s;  
 }
+
 
 .avatar {
   border-radius: 8px;

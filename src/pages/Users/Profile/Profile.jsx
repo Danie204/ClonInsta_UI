@@ -28,7 +28,7 @@ const Profile = () => {
 
   return (
     <>
-      <div className="container">
+   <div className="container">
   <div>
     <h1>{info.data.user.username}</h1>
     <h2 className="avatarinfo">

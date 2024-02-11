@@ -28,7 +28,9 @@ const Posts = ({ data, onDelete, currentUser }) => {
   }
 
   const handleDelete = () => {
-    onDelete(data.id);
+    if (data && data.id) {
+      onDelete(data.id);
+    }
   };
 
   return (
@@ -73,7 +75,7 @@ const Posts = ({ data, onDelete, currentUser }) => {
       </Link>
       <div className="PostActions">
         <Like postId={data.id} likes={data.likes} />
-        {currentUser.id == data.userId && (
+        {currentUser && currentUser.id == data.userId && (
           <DeletePost postId={data.id} onSuccess={handleDelete} />
         )}
       </div>
