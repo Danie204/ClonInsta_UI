@@ -26,9 +26,8 @@ const Posts = ({ data, onDelete, currentUser }) => {
       differenceInHours === 1 ? "" : "s"
     }`;
   }
-console.log('currentUser', currentUser);
-console.log(data);
- const handleDelete = () => {
+
+  const handleDelete = () => {
     onDelete(data.id);
   };
 

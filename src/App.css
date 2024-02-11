@@ -11,11 +11,10 @@ button {
   align-items: center;
   position: relative;
   max-width: 200px;
-
 }
 
 input {
-  display:flex;
+  display: flex;
   align-items: center;
   justify-content: space-between;
   line-height: 50px;
@@ -28,19 +27,18 @@ input {
   border-radius: 12px;
   background-color: #f6f7f8;
   color: #3f2338;
-  transition: .5s ease;
+  transition: 0.5s ease;
   text-align: center;
-  }
+}
 
-  .input::placeholder {
-    color: #94a3b8;
-  }
+.input::placeholder {
+  color: #94a3b8;
+}
 
-  .input:focus, input:hover {
-    outline: none;
-    border-color: #a9388d;
-    background-color: #fff;
-    box-shadow: 0 0 0 2px rgba(134, 72, 123, 0.3);
-  }
-
-
+.input:focus,
+input:hover {
+  outline: none;
+  border-color: #a9388d;
+  background-color: #fff;
+  box-shadow: 0 0 0 2px rgba(134, 72, 123, 0.3);
+}
