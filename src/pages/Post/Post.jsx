@@ -36,7 +36,7 @@ const Post = () => {
       >
         <h3>{data.description}</h3>
         <span className="author">
-          Por
+          {<FormattedMessage id="posts.author" />}
           <button
             className="profile-button"
             onClick={(e) => {

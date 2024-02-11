@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import "./Posts.css";
 import Like from "./Like";
 import DeletePost from "../Post/DeletePost";
+import { FormattedMessage } from "react-intl";
 
 const Posts = ({ data }) => {
   const style = {};
@@ -36,7 +37,7 @@ const Posts = ({ data }) => {
           <h3>{data.description}</h3>
 
           <span className="author">
-            Por
+            <FormattedMessage id="posts.author" />
             <button
               className="profile-button"
               onClick={(e) => {
@@ -48,7 +49,7 @@ const Posts = ({ data }) => {
               {data.username}
             </button>
           </span>
-          {"El "}
+          <FormattedMessage id="posts.date" />
           <span className="date">
             <FormattedDate value={data.createdAt} month="long" day="numeric" />
           </span>

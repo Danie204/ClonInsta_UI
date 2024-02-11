@@ -17,5 +17,7 @@
   "register.account": "¿Ya tienes cuenta?",
   "register.singIn": "Inicia sesión",
   "header.themeDark": "Tema oscuro",
-  "header.themeLight": "Ligth theme"
+  "header.themeLight": "Tema claro",
+  "posts.author": "Por",
+  "posts.date": "El "
 }
