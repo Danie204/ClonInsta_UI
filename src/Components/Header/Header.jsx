@@ -31,7 +31,7 @@ const Header = ({ setFiltros }) => {
       <nav>
         <Link to="/">
           <button>
-            <span>Instragram</span>
+            <span>ClonInsta</span>
           </button>
         </Link>
       </nav>
