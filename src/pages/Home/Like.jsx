@@ -10,7 +10,6 @@ const Like = ({ postId, initialLiked, likes }) => {
   const toggleLike = async () => {
     setLiked(!liked);
     const response = await userActions.like(postId);
-    console.log("::", response);
     setN(response.data.numLikes);
   };
 

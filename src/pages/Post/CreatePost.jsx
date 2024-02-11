@@ -38,6 +38,8 @@ const CreatePost = () => {
     navigate("/");
   };
 
+//window.location.reload();
+
   const handleDeleteSuccess = () => {
     setPostIdtoDelete(null);
   };

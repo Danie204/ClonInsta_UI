@@ -24,21 +24,18 @@ const Avatar = () => {
     const res = await fetch("http://localhost:3000/users/avatar", {
       method: "PUT",
       headers: {
-        Authorization: `${user}`,
+        Authorization: `${user}`, 
       },
       body: fd,
     });
-    if (!user || !user.token) {
-      console.error("El usuario o el token es undefined.");
-    }
-
+  
     if (res.ok) {
-      const data = await res.json();
-      console.log(data.data.avatar);
-      navigate("/users/" + data.data.avatar);
-    }
-  };
-
+      window.location.reload();
+  } else {
+    console.error("Error al actualizar el avatar.");
+  }
+};
+    
   return (
     <div>
       <label htmlFor="fileInput">
