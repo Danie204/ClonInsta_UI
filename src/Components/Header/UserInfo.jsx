@@ -37,7 +37,7 @@ const UserInfoLoggedIn = () => {
       </Link>
 
       <span className="logout" onClick={() => setUser()}>
-        ⏻
+        <img src="logout-21.svg" alt="logout" />
       </span>
     </span>
   );
