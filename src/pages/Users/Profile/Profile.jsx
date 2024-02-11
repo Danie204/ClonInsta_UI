@@ -31,30 +31,12 @@ const Profile = () => {
    <div className="container">
   <div>
     <h1>{info.data.user.username}</h1>
-    <h2 className="avatarinfo">
+    <h4 className="avatarinfo">
       <form htmlFor="avatarInput">
         <img src={`http://localhost:3000/${avatar}`} alt="Avatar" />
       </form>
-    </h2> 
+    </h4> 
     <Avatar />
-    <div>
-      <div>
-        <span>50</span>
-        <span>Publicaciones</span>
-      </div>
-      <div>
-        <span>492</span>
-        <span>Seguidores</span>
-      </div>
-      <div>
-        <span>950</span>
-        <span>Seguidos</span>
-      </div>
-      <div>
-        <span>50</span>
-        <span>Publicaciones</span>
-      </div>
-    </div>
   </div>
   <div className="posts">
     {posts &&
