@@ -1,38 +1,43 @@
+#posts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 32px;
+}
+
 #avatarinfo {
-    display: flex;
-    align-items:flex-end;
-  }
-  
-  .avatarinfo img {
-    object-fit:cover;
-    width: 120px;
-    height: 120px;
-    border-radius: 120px;
-  }
+  display: flex;
+  align-items: flex-end;
+}
 
-  .button {
-    border-radius: 8px;
-    border-color: #a9388d;
-    padding: 0.5em 1em;
-    font-size: 1em;
-    font-weight: 500;
-    font-family: inherit;
-    background-color: #fafafa;
-    color: black;
-    cursor: pointer;
-    transition: border-color 0.25s;
-    }
+.avatarinfo img {
+  object-fit: cover;
+  width: 120px;
+  height: 120px;
+  border-radius: 120px;
+}
 
-  .avatar {
-    border-radius: 8px;
-    border-color: #a9388d;
-    padding: 0.5em 1em;
-    font-size: 1em;
-    font-weight: 500;
-    font-family: inherit;
-    background-color: #fafafa;
-    color: black;
-    cursor: pointer;
-    transition: border-color 0.25s
-  } 
-    
+.button {
+  border-radius: 8px;
+  border-color: #a9388d;
+  padding: 0.5em 1em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #fafafa;
+  color: black;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+
+.avatar {
+  border-radius: 8px;
+  border-color: #a9388d;
+  padding: 0.5em 1em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #fafafa;
+  color: black;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
