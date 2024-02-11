@@ -7,7 +7,6 @@
   display: inline-block;
   flex-direction: column;
   margin: 100px 0px 0px;
-
 }
 
 .PostImage {
@@ -72,6 +71,7 @@
 
 .PostActions {
   display:flex;
+  margin: 0px;
 }
 
 .PostActions > * {
@@ -87,7 +87,7 @@
 
 
 .PostInfo .time-ago {
-  font-size: 15px;;
+  font-size: 15px;
   margin: 0px 0px 0px;
   cursor: pointer;
   color: rgb(57, 51, 51);
