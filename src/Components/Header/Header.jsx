@@ -60,7 +60,11 @@ const Header = ({ setFiltros }) => {
       </button>
 
       <button onClick={toggleTheme}>
-        {theme === "light" ? "Tema oscuro" : "Tema claro"}
+        {theme === "light" ? (
+          <FormattedMessage id="header.themeDark" />
+        ) : (
+          <FormattedMessage id="header.themeLight" />
+        )}
       </button>
       <UserInfo />
     </header>

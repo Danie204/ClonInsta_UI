@@ -16,5 +16,7 @@
   "post.postAuthor": "By",
   "register.singUp": "Sing up",
   "register.account": "Have an account?",
-  "register.singIn": "Sing in"
+  "register.singIn": "Sing in",
+  "header.themeDark": "Dark theme",
+  "header.themeLight": "Light theme"
 }

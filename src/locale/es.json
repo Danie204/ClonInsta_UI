@@ -15,5 +15,7 @@
   "post.postAuthor": "Por",
   "register.singUp": "Regístrate",
   "register.account": "¿Ya tienes cuenta?",
-  "register.singIn": "Inicia sesión"
+  "register.singIn": "Inicia sesión",
+  "header.themeDark": "Tema oscuro",
+  "header.themeLight": "Ligth theme"
 }
