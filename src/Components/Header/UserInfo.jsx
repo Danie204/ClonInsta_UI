@@ -23,6 +23,7 @@ const UserInfoLoggedIn = () => {
   const info = useMyInfo();
   return (
     <span className="userinfo">
+      <img src={`http://localhost:3000/${info.data.user.avatar}`} />
       <Link
         to={`/profile/${info.data.user.id}`}
         onClick={() =>
@@ -34,7 +35,7 @@ const UserInfoLoggedIn = () => {
         {" "}
         {info.data.user.username}{" "}
       </Link>
-      <img src={`http://localhost:3000/${info.data.user.avatar}`} />
+
       <span className="logout" onClick={() => setUser()}>
         ⏻
       </span>

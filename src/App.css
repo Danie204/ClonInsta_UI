@@ -5,7 +5,7 @@
   text-align: center;
 }
 
-.button {
+button {
   display: flex;
   line-height: 30px;
   align-items: center;
@@ -15,9 +15,10 @@
 }
 
 input {
-  display:grid;
+  display:flex;
+  align-items: center;
+  justify-content: space-between;
   line-height: 50px;
-  position: relative;
   max-width: 200px;
   width: 100%;
   height: 45px;
@@ -25,7 +26,6 @@ input {
   margin: 10px;
   border: 2.5px solid transparent;
   border-radius: 12px;
-  outline: none;
   background-color: #f6f7f8;
   color: #3f2338;
   transition: .5s ease;
@@ -43,11 +43,4 @@ input {
     box-shadow: 0 0 0 2px rgba(134, 72, 123, 0.3);
   }
 
-  .icon {
-    position: absolute;
-    left: 1rem;
-    fill: none;
-    width: 1rem;
-    height: 1rem;
-  }
 
