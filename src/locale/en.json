@@ -13,5 +13,8 @@
   "home.newPosts": "New Posts",
   "userInfo.login": "Log in",
   "header.placeholderSearch": "Search",
-  "post.postAuthor": "By"
+  "post.postAuthor": "By",
+  "register.singUp": "Sing up",
+  "register.account": "Have an account?",
+  "register.singIn": "Sing in"
 }

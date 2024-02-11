@@ -12,5 +12,8 @@
   "home.newPosts": "Publicaciones recientes",
   "userInfo.login": "Iniciar sesión",
   "header.placeholderSearch": "Buscar",
-  "post.postAuthor": "Por"
+  "post.postAuthor": "Por",
+  "register.singUp": "Regístrate",
+  "register.account": "¿Ya tienes cuenta?",
+  "register.singIn": "Inicia sesión"
 }
