@@ -32,7 +32,10 @@ const Register = () => {
 
   if (userRegister) {
     return (
-      <h2>Bienvenido, Por favor revisa tu correo para validar tu usuario </h2>
+      <h2>
+      <img src="icons8-instagram-old.svg" alt="ClonInsta" />
+      Bienvenido a ClonInsta. Por favor revisa tu correo para que puedas validar tu usuario.
+    </h2>
     );
   }
 
