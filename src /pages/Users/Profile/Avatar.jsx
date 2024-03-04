@@ -5,7 +5,8 @@ import addImage from "/add-fill-9-512.png";
 import { FormattedMessage } from "react-intl";
 import "./Profile.css";
 
-const Avatar = () => {
+const Avatar = ({ editable } ) => {
+
   const [preview, setPreview] = useState();
   const [photo, setPhoto] = useState();
   const [user] = useUser();
@@ -20,7 +21,7 @@ const Avatar = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const fd = new FormData();
-    fd.append("avatar", photo);
+    fd.append("avatar", photo); 
     const res = await fetch("http://localhost:3000/users/avatar", {
       method: "PUT",
       headers: {
@@ -39,8 +40,9 @@ const Avatar = () => {
   return (
     <div>
       <label htmlFor="fileInput">
-        <img
-          src={preview || addImage}
+        {editable && 
+        (<img
+          src={addImage}
           alt="Preview"
           style={{
             display: "block",
@@ -49,7 +51,31 @@ const Avatar = () => {
             maxHeight: "20px",
           }}
         />
+        )}  
       </label>
+          {editable && (
+    <>
+                  <input
+        id="fileInput"
+        type="file"
+        accept="image/*"
+        onChange={handleChange}
+        style={{ display: "none" }}
+      />
+      <button className="avatar" onClick={handleSubmit}>
+        <FormattedMessage id="avatar.profile" />
+      </button> 
+      </>
+       )}
+    
+    </div>
+  );
+};
+
+export default Avatar;
+
+
+/*
       <input
         id="fileInput"
         type="file"
@@ -59,9 +85,5 @@ const Avatar = () => {
       />
       <button className="avatar" onClick={handleSubmit}>
         <FormattedMessage id="avatar.profile" />
-      </button>
-    </div>
-  );
-};
-
-export default Avatar;
+      </button> 
+*/
