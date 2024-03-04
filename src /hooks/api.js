@@ -1,4 +1,4 @@
-import { useFetch, useFetchPosts } from "/src/hooks/useFetch.js";
+import { useFetch, useFetchPosts } from "../../src /hooks/useFetch";
 
 const apiHost = "http://localhost:3000";
 
