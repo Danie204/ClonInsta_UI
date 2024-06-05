@@ -1,77 +1,88 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { useLang } from '../IntlContext';
-import UserInfo from './UserInfo';
-import './Header.css';
-import { listPosts } from '../../hooks/api';
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { useLang } from "../IntlContext";
+import UserInfo from "../../Components/Header/UserInfo";
+import { useUser } from "../../UserContext";
+import { MdSunny } from "react-icons/md";
+import { MdDarkMode } from "react-icons/md";
+import { IoMdAdd } from "react-icons/io";
+import { SlSocialInstagram } from "react-icons/sl";
+import { CiSearch } from "react-icons/ci";
+import { useIntl } from "react-intl";
+import "./Header.css";
 
-const Header = () => {
+const Header = ({ setFiltros }) => {
   const [lang, setLang] = useLang();
-  const [theme, setTheme] = useState('light'); // Estado para el tema
-  const [searchTerm, setSearchTerm] = useState('');
+  const [theme, setTheme] = useState("light");
+  const [searchTerm, setSearchTerm] = useState("");
   const [searchResult, setSearchResult] = useState([]);
+  const [user] = useUser();
+  const intl = useIntl();
 
-  // Función para cambiar el tema
   const toggleTheme = () => {
-    setTheme(theme === 'light' ? 'dark' : 'light');
+    setTheme(theme === "light" ? "dark" : "light");
   };
 
-  // Función para manejar cambios en el campo de búsqueda
+  useEffect(() => {
+    document.body.className = theme === "light" ? "light-theme" : "dark-theme";
+  }, [theme]);
+
   const handleSearchChange = (e) => {
     setSearchTerm(e.target.value);
   };
 
-  // Función para manejar la búsqueda y la navegación a la página de resultados
-  const handleSearch = async () => {
-    try {
-      const posts = await listPosts(searchTerm); // Llama a la función listPosts con el término de búsqueda
-      setSearchResult(posts);
-      // Después de obtener los resultados, navegar a la página de resultados
-    } catch (error) {
-      console.error('Error al buscar publicaciones:', error);
-    }
+  const handleSearch = async (e) => {
+    e.preventDefault();
+    setFiltros(searchTerm);
+    setSearchTerm("");
   };
 
   return (
-    <header className={theme === 'light' ? 'light-theme' : 'dark-theme'}>
-      <nav>
-        <Link to="/">
-          <button>
-            <span>Instragram</span>
-          </button>
-        </Link>
-        <Link to="/posts">Publicar</Link>
-      </nav>
+    <header
+      className={`header ${
+        theme === "light" ? "light-theme" : "dark-theme"
+      } line-color`}
+    >
+      <Link to="/" id="gohome">
+        <button style={{ fontSize: "25px" }}>
+          <SlSocialInstagram />
+        </button>
+      </Link>
 
-      <span>
+      <Link to="/posts" id="addpost">
+        <button style={{ fontSize: "25px" }}>
+          <IoMdAdd />
+        </button>
+      </Link>
+
+      <span className="lang">
         <select value={lang} onChange={(e) => setLang(e.target.value)}>
-          <option value="en">🇬🇧 en</option>
-          <option value="es">🇪🇸 es</option>
+          <option value="es">🇪🇸 Es</option>
+          <option value="en">🇬🇧 En</option>
+          <option value="it">🇮🇹 It</option>
         </select>
       </span>
 
-      <input
-        type="text"
-        placeholder="Buscar..."
-        value={searchTerm}
-        onChange={handleSearchChange}
-      />
+      <form onSubmit={handleSearch} id="search">
+        <input
+          type="text"
+          placeholder={intl.formatMessage({ id: "header.searchPlaceholder" })}
+          value={searchTerm}
+          onChange={handleSearchChange}
+        />
 
-      {/* Usamos el componente Link para envolver el botón de búsqueda */}
-      <Link
-        to={{
-          pathname: '/search-results',
-          search: `?query=${searchTerm}`,
-          state: { results: searchResult }
-        }}
-      >
-        <button onClick={handleSearch}>Buscar</button>
-      </Link>
+        <button style={{ fontSize: "25px" }}>
+          <CiSearch />
+        </button>
+      </form>
 
-      <button onClick={toggleTheme}>
-        {theme === 'light' ? 'Cambiar a tema oscuro' : 'Cambiar a tema claro'}
+      <button onClick={toggleTheme} id="theme">
+        {theme === "light" ? (
+          <MdDarkMode style={{ fontSize: "25px" }} />
+        ) : (
+          <MdSunny style={{ fontSize: "25px" }} />
+        )}
       </button>
-
       <UserInfo />
     </header>
   );

@@ -1,53 +1,38 @@
-import { useState } from 'react';
-import Avatar from './Avatar';
-//import axios from 'axios'; // Importa axios para realizar solicitudes HTTP
+import React, { useState } from 'react';
+import { useUserById, usePostsByUserId, useMyInfo } from "../../../hooks/api";
+import { Link } from 'react-router-dom';
+import Avatar from '../Profile/Avatar';
+import "./Profile.css";
 
 const Profile = () => {
-  const [showPosts, setShowPosts] = useState(false);
-  const [userPosts, setUserPosts] = useState([]);
-
-  // Función para obtener las publicaciones del usuario desde el servidor
-  const fetchUserPosts = async () => {
-    try {
-      // Realiza una solicitud GET al servidor para obtener las publicaciones del usuario
-      const response = await axios.get(`http://localhost:3000/posts/${userId}`); // Reemplaza userId con el ID del usuario actual
-
-      // Actualiza el estado userPosts con las publicaciones obtenidas
-      setUserPosts(response.data);
-      setShowPosts(true);
-    } catch (error) {
-      console.error('Error al obtener las publicaciones del usuario:', error);
-    }
-  };
-
-  const handleChangeAvatar = () => {
-    // Lógica para cambiar el avatar del usuario
-    // Esto podría incluir una redirección a la página de cambio de avatar
-    // o la apertura de un modal, etc.
-    // Por ahora, simplemente se imprime un mensaje en la consola.
-    console.log("Cambiar avatar del usuario");
-  };
-
+  const userId = window.location.pathname.split("/")[2];
+  const info = useUserById(userId);
+  const currentUser = useMyInfo();
+  const posts = usePostsByUserId(userId);
+  const [avatar, setAvatar] = useState(info.data.user.avatar);
+  
   return (
-    <div>
-      <h1>Perfil de Usuario</h1>
-      <button onClick={fetchUserPosts}>Ver Publicaciones</button>
-      <button onClick={handleChangeAvatar}>Cambiar Avatar</button>
-      <Avatar />
-      {showPosts && (
-        <div>
-          <h2>Publicaciones del Usuario</h2>
-          {userPosts.map(post => (
-            <div key={post.id}>
-              <h3>{post.title}</h3>
-              <p>{post.content}</p>
-            </div>
-          ))}
-        </div>
-      )}
+    <>
+    <div className="container">
+      <div className="container-avatar">
+        <h1 className="username">{info.data.user.username}</h1>
+        <h4 className="avatarinfo">
+          <form htmlFor="avatarInput">
+            <img src={`http://localhost:3000/${avatar}`} alt="Avatar" />
+          </form>
+        </h4> 
+        <Avatar editable={currentUser.data.user.id == userId} />
+      </div>
+      <div className="posts">
+        {posts && posts.data.photos.map((e) => (
+          <Link to={`/posts/${e.id}`} key={e.id}>
+            <img src={`http://localhost:3000/${e.imagenURL}`} alt={`Post ${e.id}`} />
+          </Link>
+        ))}
+      </div> 
     </div>
+    </>
   );
 };
 
 export default Profile;
-
